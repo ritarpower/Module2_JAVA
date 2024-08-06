@@ -9,11 +9,11 @@ public class MergedArrays {
         int[] arr2 = new int[4];
         int[] arr3 = new int[arr1.length + arr2.length];
         for (int i = 0; i < arr1.length; i++) {
-            System.out.println("Nhap vao so thu: "+i +" cua mang 1");
+            System.out.println("Nhap vao so thu: " + i + " cua mang 1");
             arr1[i] = Integer.parseInt(sc.nextLine());
         }
         for (int i = 0; i < arr2.length; i++) {
-            System.out.println("Nhap vao so thu: "+i +" cua mang 2");
+            System.out.println("Nhap vao so thu: " + i + " cua mang 2");
             arr2[i] = Integer.parseInt(sc.nextLine());
         }
         for (int i = 0; i < arr1.length; i++) {

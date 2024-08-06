@@ -11,7 +11,7 @@ public class AddedElement {
         System.out.println("Nhap vi tri muon them phan tu: ");
         int index = Integer.parseInt(sc.nextLine());
         if (index <= -1 || index >= arr.length) {
-                System.out.println("Khong the chen duoc phan tu vao mang, nhap lại vi tri muon them");
+            System.out.println("Khong the chen duoc phan tu vao mang, nhap lại vi tri muon them");
         } else {
             for (int i = arr.length - 1; i > index; i--) {
                 arr[i] = arr[i - 1];
