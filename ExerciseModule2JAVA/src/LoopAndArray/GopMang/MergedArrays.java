@@ -1,5 +1,6 @@
 package LoopAndArray.GopMang;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MergedArrays {
@@ -24,10 +25,6 @@ public class MergedArrays {
             arr3[x] = k;
             x++;
         }
-//        chưa nắm rõ chỗ này, đang viết mảng 2 tiếp tục từ vị trí kết thúc mảng 1, còn TH khác?
-
-        for (int j : arr3) {
-            System.out.println(j);
-        }
+        System.out.println(Arrays.toString(arr3));
     }
 }
