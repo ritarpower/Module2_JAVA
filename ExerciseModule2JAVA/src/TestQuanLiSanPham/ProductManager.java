@@ -1,5 +1,7 @@
 package TestQuanLiSanPham;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ProductManager {
@@ -15,6 +17,8 @@ public class ProductManager {
         for (int i = 0; i < products.length; i++) {
             if (products[i] != null) {
                 System.out.println((i + 1) + ".\t" + products[i]);
+            } else {
+                break;
             }
         }
     }
@@ -28,10 +32,10 @@ public class ProductManager {
         }
     }
 
-    public static void removeProduct(int id) {
+    public static void deleteProduct(int id) {
         int index = -1;
         for (int i = 0; i < products.length; i++) {
-            if (products[i] !=null && products[i].getId() == id) {
+            if (products[i] != null && products[i].getId() == id) {
                 index = i;
                 break;
             }
@@ -41,7 +45,7 @@ public class ProductManager {
                 products[i] = products[i + 1];
             }
             products[products.length - 1] = null;
-        }else{
+        } else {
             System.out.println("Không tìm thấy id sản phẩm cần xóa!");
         }
 
@@ -55,19 +59,43 @@ public class ProductManager {
         for (int i = 0; i < products.length; i++) {
             if (i == number - 1) {
                 if (products[i] != null) {
-                    System.out.println("Sửa id của sản phẩm thành: ");
+                    System.out.println("Cập nhật id của sản phẩm thành: ");
                     int editId = Integer.parseInt(sc.nextLine());
                     products[i].setId(editId);
-                    System.out.println("Sửa tên của sản phẩm thành: ");
+                    System.out.println("Cập nhật tên của sản phẩm thành: ");
                     String editName = sc.nextLine();
                     products[i].setName(editName);
-                    System.out.println("Sửa giá của sản phẩm thành: ");
+                    System.out.println("Cập nhật giá của sản phẩm thành: ");
                     double editPrice = Double.parseDouble(sc.nextLine());
                     products[i].setPrice(editPrice);
-                    System.out.println("Sản phẩm đã được thay đổi!");
+                    System.out.println("Sản phẩm đã được Cập nhật!");
                     break;
-                } else{
+                } else {
                     System.out.println("Không tìm thấy sản phẩm STT này! Vui lòng nhập lại");
+                }
+            }
+        }
+    }
+
+    public static void findingProduct(String name) {
+        Product[] findedProducts = new Product[10];
+        int count = 0;
+        for (int i = 0; i < products.length; i++) {
+            if (products[i] != null && products[i].getName().equals(name)) {
+                findedProducts[count] = products[i];
+                count++;
+            }
+        }
+
+        if (count == 0) {
+            System.out.println("Không có sản phẩm cần tìm!");
+        } else {
+            System.out.println("Có " + count + " sản phẩm cần tìm: ");
+            for (Product findedProduct : findedProducts) {
+                if (findedProduct != null) {
+                    System.out.println(findedProduct);
+                } else {
+                    break;
                 }
             }
         }

@@ -61,4 +61,22 @@ public class ProductManagerBangArrayList {
             }
         }
     }
+
+    public static void findingProduct(String name){
+        ArrayList<Product> findedProducts = new ArrayList<>();
+        for (Product product : products) {
+            if (product != null && product.getName().equals(name)) {
+                findedProducts.add(product);
+            }
+        }
+
+        if(findedProducts.isEmpty()){
+            System.out.println("Không có sản phẩm cần tìm!");
+        } else {
+            System.out.println("Có " + findedProducts.size() + " cần tìm:");
+            for (Product product : findedProducts) {
+                System.out.println(product);
+            }
+        }
+    }
 }
