@@ -1,7 +1,6 @@
 package TestQuanLiSanPham;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class ProductManagerBangArrayList {
     private static ArrayList<Product> products = new ArrayList<>();

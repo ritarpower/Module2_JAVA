@@ -78,7 +78,7 @@ public class ProductManager {
     }
 
     public static void findingProduct(String name) {
-        Product[] findedProducts = new Product[10];
+        Product[] findedProducts = new Product[products.length];
         int count = 0;
         for (int i = 0; i < products.length; i++) {
             if (products[i] != null && products[i].getName().equals(name)) {

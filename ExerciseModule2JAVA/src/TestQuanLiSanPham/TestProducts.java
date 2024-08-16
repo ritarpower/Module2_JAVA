@@ -47,7 +47,7 @@ public class TestProducts {
                 case 5:
                     System.out.println("---Nhập tên sản phẩm cần tìm");
                     String findedName = sc.nextLine();
-                    ProductManagerBangArrayList.findingProduct(findedName);
+                    ProductManager.findingProduct(findedName);
                     break;
                 case 6:
                     System.out.println("---Chương trình kết thúc!---");
