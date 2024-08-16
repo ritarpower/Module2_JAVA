@@ -1,8 +1,7 @@
 package TestQuanLiSanPham;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class ProductManager {
     private static Product[] products = new Product[10];
@@ -13,7 +12,7 @@ public class ProductManager {
         products[2] = new Product(3, "Xiaomi", 800);
     }
 
-    public static void display() {
+    public void display() {
         for (int i = 0; i < products.length; i++) {
             if (products[i] != null) {
                 System.out.println((i + 1) + ".\t" + products[i]);
@@ -23,7 +22,7 @@ public class ProductManager {
         }
     }
 
-    public static void addProduct(Product product) {
+    public void addProduct(Product product) {
         for (int i = 0; i < products.length; i++) {
             if (products[i] == null) {
                 products[i] = product;
@@ -32,7 +31,7 @@ public class ProductManager {
         }
     }
 
-    public static void deleteProduct(int id) {
+    public void deleteProduct(int id) {
         int index = -1;
         for (int i = 0; i < products.length; i++) {
             if (products[i] != null && products[i].getId() == id) {
@@ -51,7 +50,7 @@ public class ProductManager {
 
     }
 
-    public static void editProduct(int number) {
+    public void editProduct(int number) {
         if (number < 1 || number > products.length) {
             System.out.println("Không tìm thấy sản phẩm STT này! Vui lòng nhập lại");
         }
@@ -77,7 +76,7 @@ public class ProductManager {
         }
     }
 
-    public static void findingProduct(String name) {
+    public void findingProduct(String name) {
         Product[] findedProducts = new Product[products.length];
         int count = 0;
         for (int i = 0; i < products.length; i++) {
@@ -97,6 +96,84 @@ public class ProductManager {
                 } else {
                     break;
                 }
+            }
+        }
+    }
+
+    public void sortProductsLowToHigh() {
+        for (int i = 0; i < products.length - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < products.length; j++) {
+                if (products[j] != null && products[minIndex] != null && products[j].getPrice() < products[minIndex].getPrice()) {
+                    minIndex = j;
+                }
+            }
+            if (products[i] != null && products[minIndex] != null) {
+                Product temp = products[minIndex];
+                products[minIndex] = products[i];
+                products[i] = temp;
+            }
+        }
+        for (Product product : products) {
+            if (product != null) {
+                System.out.println(product);
+            }
+        }
+    }
+
+    public void sortProductsHighToLow() {
+        for (int i = 0; i < products.length - 1; i++) {
+            int maxIndex = i;
+            for (int j = i + 1; j < products.length; j++) {
+                if (products[j] != null && products[maxIndex] != null && products[j].getPrice() > products[maxIndex].getPrice()) {
+                    maxIndex = j;
+                }
+            }
+            if (products[i] != null && products[maxIndex] != null) {
+                Product temp = products[maxIndex];
+                products[maxIndex] = products[i];
+                products[i] = temp;
+            }
+        }
+        for (Product product : products) {
+            if (product != null) {
+                System.out.println(product);
+            }
+        }
+    }
+
+    public void sortProductsByName() {
+//        Arrays.sort(products, new Comparator<Product>() {
+//
+//            @Override
+//            public int compare(Product o1, Product o2) {
+//                if(!Objects.isNull(o1)) {
+//                    return o1.getName().compareTo(o2.getName());
+//                }
+//                return 0;
+//            }
+//        });
+//        for (Product product : products) {
+//            if(product != null) {
+//                System.out.println(product);
+//            }
+//        }
+        for (int i = 0; i < products.length; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < products.length; j++) {
+                if (products[j] != null && products[minIndex] != null && products[j].getName().charAt(0) < products[minIndex].getName().charAt(0)) {
+                    minIndex = j;
+                }
+            }
+            if (products[i] != null && products[minIndex] != null) {
+                Product temp = products[minIndex];
+                products[minIndex] = products[i];
+                products[i] = temp;
+            }
+        }
+        for (Product product : products) {
+            if (product != null) {
+                System.out.println(product);
             }
         }
     }
