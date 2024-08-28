@@ -8,7 +8,7 @@ public class Person {
     private String code;
     private String email;
 
-    public Person(String name, LocalDate birthDate, String code, String email) {
+    public Person(String code, String name, LocalDate birthDate, String email) {
         this.name = name;
         this.birthDate = birthDate;
         this.code = code;
@@ -49,9 +49,9 @@ public class Person {
 
     @Override
     public String toString() {
-        return "name='" + name + '\'' +
-                ", birthDate=" + birthDate +
-                ", code='" + code + '\'' +
+        return "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", birthDate='" + birthDate + '\'' +
                 ", email='" + email + '\'';
     }
 }

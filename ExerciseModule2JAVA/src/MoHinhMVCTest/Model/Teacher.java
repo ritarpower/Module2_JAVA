@@ -13,8 +13,8 @@ public class Teacher extends Person {
         this.salary = salary;
     }
 
-    public Teacher(String name, LocalDate birthDate, String code, String email, double salary) {
-        super(name, birthDate, code, email);
+    public Teacher(String code, String name, LocalDate birthDate, String email, double salary) {
+        super(code, name, birthDate, email);
         this.salary = salary;
     }
 

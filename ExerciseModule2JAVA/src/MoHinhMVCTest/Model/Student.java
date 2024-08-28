@@ -13,15 +13,15 @@ public class Student extends Person {
         this.classCode = classCode;
     }
 
-    public Student(String name, LocalDate birthDate, String code, String email, String classCode) {
-        super(name, birthDate, code, email);
+    public Student(String code, String name, LocalDate birthDate, String email, String classCode) {
+        super(code, name, birthDate, email);
         this.classCode = classCode;
     }
 
     @Override
     public String toString() {
         return "Student{" + super.toString() +
-                "," + " salary='" + classCode + '\'' +
+                "," + " classCode='" + classCode + '\'' +
                 '}';
     }
 }
