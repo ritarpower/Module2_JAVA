@@ -5,10 +5,8 @@ import MoHinhMVCTest.Model.Teacher;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class TeacherRepo implements InterfaceTeacherRepo {
-    private static final Scanner sc = new Scanner(System.in);
     private static final List<Teacher> teachers = new ArrayList<>();
 
     static {
@@ -28,21 +26,12 @@ public class TeacherRepo implements InterfaceTeacherRepo {
     }
 
     @Override
-    public void removeTeacher(String code) {
-        boolean found = false;
-        for (int i = 0; i < teachers.size(); i++) {
-            if (teachers.get(i).getCode().equals(code)) {
-                found = true;
-                confirmRemoveTeacher(i);
-            }
-        }
-        if (!found) {
-            System.out.println("Không tìm thấy mã giảng viên!");
-        }
+    public void deleteTeacher(Teacher teacher) {
+        teachers.remove(teacher);
     }
 
     @Override
-    public Teacher findByCode(String code) {
+    public Teacher findTeacherByCode(String code) {
         for (int i = 0; i < teachers.size(); i++) {
             if (teachers.get(i).getCode().equals(code)) {
                 return teachers.get(i);
@@ -59,20 +48,4 @@ public class TeacherRepo implements InterfaceTeacherRepo {
         }
     }
 
-    private void confirmRemoveTeacher(int i) {
-        System.out.println("Bạn chắc chắn muốn xóa chứ? \n" +
-                "1. Có. \t 2. Không.");
-        int choice = Integer.parseInt(sc.nextLine());
-        switch (choice) {
-            case 1:
-                teachers.remove(i);
-                System.out.println("Đã xóa thành công!");
-                break;
-            case 2:
-                System.out.println("Chọn lại mục khác!");
-                break;
-            default:
-                System.out.println("Thao tác không thành công!");
-        }
-    }
 }

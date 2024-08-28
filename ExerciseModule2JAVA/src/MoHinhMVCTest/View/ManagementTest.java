@@ -2,7 +2,10 @@ package MoHinhMVCTest.View;
 
 import MoHinhMVCTest.Controller.StudentController;
 import MoHinhMVCTest.Controller.TeacherController;
+import MoHinhMVCTest.Model.Student;
+import MoHinhMVCTest.Model.Teacher;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class ManagementTest {
@@ -58,7 +61,7 @@ public class ManagementTest {
                     studentController.updateStudent();
                     break;
                 case 4:
-                    studentController.removeStudent();
+                    deleteStudentByCode();
                     break;
                 case 5:
                     managementTest.displayMainMenu();
@@ -69,6 +72,34 @@ public class ManagementTest {
                     System.out.println("Nhập lại mục cần chọn!");
             }
         } while (true);
+    }
+
+    private void deleteStudentByCode() {
+        System.out.print("Nhập mã học viên cần xoá: ");
+        String code = sc.nextLine();
+        Student student = studentController.findStudentByCode(code);
+        if (!Objects.isNull(student)) {
+            confirmDeleteStudent(student);
+        } else {
+            System.out.println("Khong tim thay!!");
+        }
+    }
+
+    private void confirmDeleteStudent(Student student) {
+        System.out.println("Bạn chắc chắn muốn xóa " + student.getName() + " chứ?\n" +
+                "1. Có \t 2. Không");
+        int choice = Integer.parseInt(sc.nextLine());
+        switch (choice) {
+            case 1:
+                studentController.deleteStudent(student);
+                System.out.println("Đã xóa thành công!");
+                break;
+            case 2:
+                System.out.println("Chọn lại mục khác!");
+                break;
+            default:
+                System.out.println("Thao tác không thành công!");
+        }
     }
 
     public void displayTeacherMenu() {
@@ -94,7 +125,7 @@ public class ManagementTest {
                     teacherController.updateTeacher();
                     break;
                 case 4:
-                    teacherController.removeTeacher();
+                    deleteTeacherByCode();
                     break;
                 case 5:
                     managementTest.displayMainMenu();
@@ -105,6 +136,34 @@ public class ManagementTest {
                     System.out.println("Nhập lại mục cần chọn!");
             }
         } while (true);
+    }
+
+    private void deleteTeacherByCode() {
+        System.out.print("Nhập mã giảng viên cần xoá: ");
+        String code = sc.nextLine();
+        Teacher teacher = teacherController.findTeacherByCode(code);
+        if (!Objects.isNull(teacher)) {
+            confirmDeleteTeacher(teacher);
+        } else {
+            System.out.println("Khong tim thay!!");
+        }
+    }
+
+    private void confirmDeleteTeacher(Teacher teacher) {
+        System.out.println("Bạn chắc chắn muốn " + teacher.getName() + "xóa chứ? \n" +
+                "1. Có. \t 2. Không.");
+        int choice = Integer.parseInt(sc.nextLine());
+        switch (choice) {
+            case 1:
+                teacherController.deleteTeacher(teacher);
+                System.out.println("Đã xóa thành công!");
+                break;
+            case 2:
+                System.out.println("Chọn lại mục khác!");
+                break;
+            default:
+                System.out.println("Thao tác không thành công!");
+        }
     }
 
     public static void main(String[] args) {

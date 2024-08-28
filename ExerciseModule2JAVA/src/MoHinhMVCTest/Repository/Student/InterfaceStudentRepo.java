@@ -9,9 +9,9 @@ public interface InterfaceStudentRepo {
 
     void addStudent(Student student);
 
-    void removeStudent(String code);
-
-    Student findByCode(String code);
-
     void updateStudent(Student student);
+
+    Student findStudentByCode(String code);
+
+    void deleteStudent(Student student);
 }

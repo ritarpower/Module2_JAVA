@@ -37,16 +37,10 @@ public class TeacherController {
         System.out.println("Đã thêm mới thành công!");
     }
 
-    public void removeTeacher() {
-        System.out.println("Nhập mã giảng viên cần xóa: ");
-        String code = sc.nextLine();
-        interfaceTeacherService.removeTeacher(code);
-    }
-
     public void updateTeacher() {
         System.out.println("Nhập mã giảng viên cần chỉnh sửa: ");
         String code = sc.nextLine();
-        Teacher updateTeacher = interfaceTeacherService.findByCode(code);
+        Teacher updateTeacher = interfaceTeacherService.findTeacherByCode(code);
         if (updateTeacher != null) {
             System.out.println("Nhập tên giảng viên: ");
             String name = sc.nextLine();
@@ -64,5 +58,13 @@ public class TeacherController {
         } else {
             System.out.println("Không tìm thấy mã giảng viên cần chỉnh sửa!");
         }
+    }
+
+    public Teacher findTeacherByCode(String code){
+        return interfaceTeacherService.findTeacherByCode(code);
+    }
+
+    public void deleteTeacher(Teacher teacher) {
+        interfaceTeacherService.deleteTeacher(teacher);
     }
 }

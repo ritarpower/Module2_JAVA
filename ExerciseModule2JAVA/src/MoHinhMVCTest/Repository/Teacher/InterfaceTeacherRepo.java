@@ -9,9 +9,9 @@ public interface InterfaceTeacherRepo {
 
     void add(Teacher teacher);
 
-    void removeTeacher(String code);
+    void deleteTeacher(Teacher teacher);
 
-    Teacher findByCode(String code);
+    Teacher findTeacherByCode(String code);
 
     void updateTeacher(Teacher teacher);
 }

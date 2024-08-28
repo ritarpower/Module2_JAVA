@@ -4,34 +4,33 @@ import MoHinhMVCTest.Model.Teacher;
 import MoHinhMVCTest.Repository.Teacher.InterfaceTeacherRepo;
 import MoHinhMVCTest.Repository.Teacher.TeacherRepo;
 
-import java.util.Collections;
 import java.util.List;
 
 public class TeacherService implements InterfaceTeacherService {
-    private InterfaceTeacherRepo interfaceTeacherRepo = new TeacherRepo();
+    private InterfaceTeacherRepo teacherRepo = new TeacherRepo();
 
     @Override
     public List<Teacher> findAll() {
-        return interfaceTeacherRepo.findAll();
+        return teacherRepo.findAll();
     }
 
     @Override
     public void addTeacher(Teacher teacher) {
-        interfaceTeacherRepo.add(teacher);
+        teacherRepo.add(teacher);
     }
 
     @Override
-    public void removeTeacher(String code) {
-        interfaceTeacherRepo.removeTeacher(code);
+    public void deleteTeacher(Teacher teacher) {
+        teacherRepo.deleteTeacher(teacher);
     }
 
     @Override
-    public Teacher findByCode(String code) {
-        return interfaceTeacherRepo.findByCode(code);
+    public Teacher findTeacherByCode(String code) {
+        return teacherRepo.findTeacherByCode(code);
     }
 
     @Override
     public void updateTeacher(Teacher teacher) {
-        interfaceTeacherRepo.updateTeacher(teacher);
+        teacherRepo.updateTeacher(teacher);
     }
 }

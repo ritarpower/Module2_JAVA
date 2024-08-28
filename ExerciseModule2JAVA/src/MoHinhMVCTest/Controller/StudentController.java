@@ -10,10 +10,10 @@ import java.util.Scanner;
 
 public class StudentController {
     private static final Scanner sc = new Scanner(System.in);
-    private InterfaceStudentService interfaceStudentService = new StudentService();
+    private InterfaceStudentService studentService = new StudentService();
 
     public void getListStudent() {
-        List<Student> students = interfaceStudentService.findAll();
+        List<Student> students = studentService.findAll();
         for (Student student : students) {
             if (student != null) {
                 System.out.println(student);
@@ -35,20 +35,14 @@ public class StudentController {
         System.out.println("Nhập lớp học viên:");
         String classCode = sc.nextLine();
         Student student = new Student(code, name, birthDate, email, classCode);
-        interfaceStudentService.addStudent(student);
+        studentService.addStudent(student);
         System.out.println("Thêm mới thành công!");
-    }
-
-    public void removeStudent() {
-        System.out.println("Nhập mã học viên cần xóa:");
-        String code = sc.nextLine();
-        interfaceStudentService.removeStudent(code);
     }
 
     public void updateStudent() {
         System.out.println("Nhập mã học viên cần chỉnh sửa:");
         String code = sc.nextLine();
-        Student student = interfaceStudentService.findByCode(code);
+        Student student = studentService.findStudentByCode(code);
         if (student != null) {
             System.out.println("Nhập tên học viên:");
             String name = sc.nextLine();
@@ -62,10 +56,19 @@ public class StudentController {
             System.out.println("Nhập lớp học viên:");
             String classCode = sc.nextLine();
             student.setClassCode(classCode);
-            interfaceStudentService.updateStudent(student);
+            studentService.updateStudent(student);
             System.out.println("Đã chỉnh sửa thành công!");
         } else {
             System.out.println("Không tìm thấy mã học viên!");
         }
     }
+
+    public Student findStudentByCode(String code) {
+        return studentService.findStudentByCode(code);
+    }
+
+    public void deleteStudent(Student student) {
+        studentService.deleteStudent(student);
+    }
 }
+//

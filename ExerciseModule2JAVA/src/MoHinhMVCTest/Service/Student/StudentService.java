@@ -4,38 +4,36 @@ import MoHinhMVCTest.Model.Student;
 import MoHinhMVCTest.Repository.Student.InterfaceStudentRepo;
 import MoHinhMVCTest.Repository.Student.StudentRepo;
 
-import java.time.LocalDate;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 public class StudentService implements InterfaceStudentService {
     private static final Scanner sc = new Scanner(System.in);
-    private InterfaceStudentRepo interfaceStudentRepo = new StudentRepo();
+    private InterfaceStudentRepo studentRepo = new StudentRepo();
 
     @Override
     public List<Student> findAll() {
-        return interfaceStudentRepo.findAll();
+        return studentRepo.findAll();
     }
 
     @Override
     public void addStudent(Student student) {
-        interfaceStudentRepo.addStudent(student);
-    }
-
-    @Override
-    public void removeStudent(String code) {
-        interfaceStudentRepo.removeStudent(code);
-    }
-
-    @Override
-    public Student findByCode(String code) {
-        return interfaceStudentRepo.findByCode(code);
+        studentRepo.addStudent(student);
     }
 
     @Override
     public void updateStudent(Student student) {
-        interfaceStudentRepo.updateStudent(student);
+        studentRepo.updateStudent(student);
+    }
+
+    @Override
+    public Student findStudentByCode(String code) {
+        return studentRepo.findStudentByCode(code);
+    }
+
+    @Override
+    public void deleteStudent(Student student) {
+        studentRepo.deleteStudent(student);
     }
 
 
