@@ -81,7 +81,7 @@ public class ManagementTest {
         if (!Objects.isNull(student)) {
             confirmDeleteStudent(student);
         } else {
-            System.out.println("Khong tim thay!!");
+            System.out.println("Không tìm thấy mã học viên cần xoá!");
         }
     }
 
