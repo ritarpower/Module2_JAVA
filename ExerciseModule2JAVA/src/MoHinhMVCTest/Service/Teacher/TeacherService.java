@@ -16,7 +16,7 @@ public class TeacherService implements InterfaceTeacherService {
 
     @Override
     public void addTeacher(Teacher teacher) {
-        teacherRepo.add(teacher);
+        teacherRepo.addTeacher(teacher);
     }
 
     @Override

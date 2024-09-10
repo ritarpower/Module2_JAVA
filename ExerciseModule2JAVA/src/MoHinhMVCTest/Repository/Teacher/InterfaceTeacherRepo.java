@@ -7,7 +7,7 @@ import java.util.List;
 public interface InterfaceTeacherRepo {
     List<Teacher> findAll();
 
-    void add(Teacher teacher);
+    void addTeacher(Teacher teacher);
 
     void deleteTeacher(Teacher teacher);
 

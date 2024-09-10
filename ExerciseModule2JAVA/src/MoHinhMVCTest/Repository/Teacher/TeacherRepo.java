@@ -1,6 +1,7 @@
 package MoHinhMVCTest.Repository.Teacher;
 
 import MoHinhMVCTest.Model.Teacher;
+import MoHinhMVCTest.common.IOTeacherFile;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -17,35 +18,26 @@ public class TeacherRepo implements InterfaceTeacherRepo {
 
     @Override
     public List<Teacher> findAll() {
-        return teachers;
+        return IOTeacherFile.readTeacherFile();
     }
 
     @Override
-    public void add(Teacher teacher) {
-        teachers.add(teacher);
+    public void addTeacher(Teacher teacher) {
+        IOTeacherFile.writeTeacherFile(teacher);
     }
 
     @Override
     public void deleteTeacher(Teacher teacher) {
-        teachers.remove(teacher);
+        IOTeacherFile.deleteTeacher(teacher);
     }
 
     @Override
     public Teacher findTeacherByCode(String code) {
-        for (int i = 0; i < teachers.size(); i++) {
-            if (teachers.get(i).getCode().equals(code)) {
-                return teachers.get(i);
-            }
-        }
-        return null;
+        return IOTeacherFile.findTeacherByCode(code);
     }
 
     @Override
     public void updateTeacher(Teacher teacher) {
-        for (int i = 0; i < teachers.size(); i++) {
-            teachers.set(i, teacher);
-            return;
-        }
+        IOTeacherFile.updateTeacher(teacher);
     }
-
 }

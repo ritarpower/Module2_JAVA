@@ -1,6 +1,7 @@
 package MoHinhMVCTest.Repository.Student;
 
 import MoHinhMVCTest.Model.Student;
+import MoHinhMVCTest.common.IOStudentFile;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -16,36 +17,26 @@ public class StudentRepo implements InterfaceStudentRepo {
 
     @Override
     public List<Student> findAll() {
-        return students;
+        return IOStudentFile.readFromStudentFile();
     }
 
     @Override
     public void addStudent(Student student) {
-        students.add(student);
+        IOStudentFile.writeToStudentFile(student);
     }
 
     @Override
     public void updateStudent(Student student) {
-        for (int i = 0; i < students.size(); i++) {
-            if (students.get(i).getCode().equals(student.getCode())) {
-                students.set(i, student);
-                return;
-            }
-        }
+        IOStudentFile.updateStudent(student);
     }
 
     @Override
     public Student findStudentByCode(String code) {
-        for (int i = 0; i < students.size(); i++) {
-            if (students.get(i).getCode().equals(code)) {
-                return students.get(i);
-            }
-        }
-        return null;
+        return IOStudentFile.findStudentByCode(code);
     }
 
     @Override
     public void deleteStudent(Student student) {
-        students.remove(student);
+        IOStudentFile.deleteStudent(student);
     }
 }

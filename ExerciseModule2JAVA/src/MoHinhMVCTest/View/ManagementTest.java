@@ -86,7 +86,7 @@ public class ManagementTest {
     }
 
     private void confirmDeleteStudent(Student student) {
-        System.out.println("Bạn chắc chắn muốn xóa " + student.getName() + " chứ?\n" +
+        System.out.println("Bạn chắc chắn muốn xóa học viên " + student.getName() + " chứ?\n" +
                 "1. Có \t 2. Không");
         int choice = Integer.parseInt(sc.nextLine());
         switch (choice) {
@@ -150,7 +150,7 @@ public class ManagementTest {
     }
 
     private void confirmDeleteTeacher(Teacher teacher) {
-        System.out.println("Bạn chắc chắn muốn " + teacher.getName() + "xóa chứ? \n" +
+        System.out.println("Bạn chắc chắn muốn xóa giảng viên " + teacher.getName() + " chứ? \n" +
                 "1. Có. \t 2. Không.");
         int choice = Integer.parseInt(sc.nextLine());
         switch (choice) {
