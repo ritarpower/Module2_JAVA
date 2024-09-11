@@ -8,12 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentRepo implements InterfaceStudentRepo {
-    private static final List<Student> students = new ArrayList<>();
-
-    static {
-        students.add(new Student("HV-001", "Minh Phúc", LocalDate.parse("1999-04-12"), "phuc.cao@gmail.com", "C0524M1"));
-        students.add(new Student("HV-002", "Phước Hoàng", LocalDate.parse("2005-12-12"), "hoang.nguyen@gmail.com", "C0524M1"));
-    }
 
     @Override
     public List<Student> findAll() {

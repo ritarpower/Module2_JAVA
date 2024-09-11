@@ -8,13 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TeacherRepo implements InterfaceTeacherRepo {
-    private static final List<Teacher> teachers = new ArrayList<>();
-
-    static {
-        teachers.add(new Teacher("GV-001", "Thanh Công", LocalDate.parse("1992-01-01"), "cong.nguyen@gmail.com", 1000));
-        teachers.add(new Teacher("GV-002", "Đức Phương", LocalDate.parse("1999-01-01"), "phuong.tran@gmail.com", 900));
-    }
-
 
     @Override
     public List<Teacher> findAll() {

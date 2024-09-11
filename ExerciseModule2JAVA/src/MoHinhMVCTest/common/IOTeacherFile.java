@@ -40,7 +40,7 @@ public class IOTeacherFile {
                 teacherList.add(teacher);
             }
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("File Not Found");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
